@@ -1,13 +1,21 @@
 <template>
     <div class="row">
+        <!-- Movies List Including Their Genres -->
         <q-card v-for="(movie, i) in store.GET_MOVIES_GENRES" :key="i" class="pa-4 col-4">
-            <q-card-section>
-                {{ movie.original_title }}
+            <!--  Title -->
+            <q-card-section class="text-weight-medium">
+                {{ movie.title }}
             </q-card-section>
+            <!--  ReleaseDate -->
+            <q-card-section class=" flex-inline ml-2">
+                <q-icon size="20px" name="calendar_today" class="mr-2"></q-icon>
+                <div>{{ movie.release_date }}</div>
+            </q-card-section>
+            <!--  Genres Array-->
             <q-card-section>
-                <div v-for="(genre, i) in movie.genres" :key="i" class="flex flex-inline ml-2">
-                    <div class="mr-2"> {{ genre }}</div>
-                    <q-icon size="8px" class="ma-auto" name="circle"
+                <div v-for="(genre, i) in movie.genres" :key="i" class="  flex-inline ml-2">
+                    <div class="mr-2 text-grey-14"> {{ genre }}</div>
+                    <q-icon size="8px" color="grey-10" class="ma-auto" name="circle"
                         v-if="movie && movie.genres && movie.genres.length > i + 1" />
                 </div>
             </q-card-section>
@@ -21,7 +29,7 @@
 import { useMovie } from '~/store/movie';
 // Movie Store
 const store = useMovie()
-
+// Calling Store Actions To Fetch Contents
 store.getGenres()
 store.getMovies()
 </script>

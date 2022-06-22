@@ -1,3 +1,4 @@
+import { MovieInfo } from "./../api/models/Movie";
 import { Genre, Movie } from "~/api/models/Movie";
 import { repositories } from "~/composables/UtilFunctions";
 
@@ -14,7 +15,7 @@ export const useMovie = defineStore("Movie", {
     getters: {
         GET_GENRES: (state) => state.Genres.genres,
         GET_MOVIES: (state) => state.Movies.results,
-        GET_MOVIES_GENRES(state): any {
+        GET_MOVIES_GENRES(state): MovieInfo[] {
             const movies = [] as any;
             for (const movie of this.GET_MOVIES) {
                 movie.genres = movie.genre_ids.map((id) => {
