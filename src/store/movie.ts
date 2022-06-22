@@ -36,8 +36,8 @@ export const useMovie = defineStore("Movie", {
             this.Genres = res.data;
         },
         // Movies List (Discover)
-        async getMovies() {
-            const res = await repositories().movies().getMovies();
+        async getMovies(page: number) {
+            const res = await repositories().movies().getMovies(page);
             this.Movies = res.data;
         },
     },

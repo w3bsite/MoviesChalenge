@@ -2,15 +2,13 @@
     <div class="ccontainer row md:max-w-80%">
         <!-- Movies List Including Their Genres -->
         <div v-for="(movie, i) in store.GET_MOVIES_GENRES" :key="i" class="col-12 col-sm-6 col-md-4 pa-2">
-            <q-card class="md:flex md:flex-row  min-h-335px ">
+            <q-card class="md:flex md:flex-row">
                 <!-- Movie Thumbnail -->
-
                 <q-img class="col" :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"></q-img>
-
                 <!-- Movie Info -->
-                <div class="col flex">
+                <div class="col column">
                     <!--  Title -->
-                    <q-card-section class="text-weight-medium">
+                    <q-card-section class="text-weight-medium ">
                         {{ movie.title }}
                     </q-card-section>
                     <!-- Short Description -->
@@ -18,30 +16,50 @@
                         {{ movie.overview.substring(0, 70) + '...' }}
                     </q-card-section> -->
                     <!--  ReleaseDate -->
-                    <q-card-section class="flex-inline ml-2 mt-auto">
-                        <q-icon size="20px" name="calendar_today" class="mr-2"></q-icon>
-                        <div>{{ movie.release_date }}</div>
+                    <q-card-section class="row mt-auto ml-2">
+                        <q-icon size="20px" name="calendar_today" class="mr-2 my-auto"></q-icon>
+                        <div class="my-auto">{{ movie.release_date }}</div>
                     </q-card-section>
                     <!--  Genres Array-->
-                    <q-card-section>
-                        <div v-for="(genre, i) in movie.genres" :key="i" class="flex-inline ml-2 mt-auto">
-                            <div class="mr-2 text-grey-14"> {{ genre }}</div>
-                            <q-icon size="8px" color="grey-10" class="ma-auto" name="circle"
+                    <q-card-section class="row">
+                        <div v-for="(genre, i) in movie.genres" :key="i" class="row ml-2   ">
+                            <div class="     mr-2  text-grey-14"> {{ genre }}
+                            </div>
+                            <q-icon size="8px" color="grey-9" class="my-auto " name="circle"
                                 v-if="movie && movie.genres && movie.genres.length > i + 1" />
                         </div>
                     </q-card-section>
                 </div>
+
             </q-card>
         </div>
-
-
+    </div>
+    <div class="ccontainer column md:max-w-80% row mt-30 mb-20">
+        <div class="ma-auto row">
+            <q-btn flat rounded label="Previous Page" color="primary" :disable="page < 2" icon="chevron_left"
+                @click="(page -= 1) && (changePage())" />
+            <q-separator :dark="false" vertical class="mx-2" color="grey-7" />
+            <q-btn flat rounded label="Next Page" color="primary" icon-right="chevron_right"
+                @click="(page += 1) && (changePage())" />
+        </div>
+        <div class="mx-auto mt-2 text-grey-7 text-weight-light">showing results
+            {{ page }}-20
+        </div>
     </div>
 </template>
 <script lang="ts" setup>
 import { useMovie } from '~/store/movie';
+// Page Number
+const page = ref(1)
 // Movie Store
 const store = useMovie()
 // Calling Store Actions To Fetch Contents
 store.getGenres()
-store.getMovies()
+store.getMovies(page.value)
+
+// This Method Is For Fetching Contents Based On Page Changes
+function changePage() {
+    store.getMovies(page.value)
+}
+
 </script>
