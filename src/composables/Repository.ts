@@ -22,7 +22,7 @@ export default abstract class Repository {
         if (token) this.token = token;
         // axios instance for config
         this.axios = axios.create({
-            baseURL: "https://api.themoviedb.org/3/",
+            baseURL: "https://api.themoviedb.org/3",
             headers: {
                 token: `${this.token}`,
             },
