@@ -1,7 +1,5 @@
 <template>
     <div class="row">
-
-
         <q-card v-for="(movie, i) in store.GET_MOVIES" :key="i" class="pa-4 col-4">
             <q-card-section>
                 {{ movie.original_title }}
