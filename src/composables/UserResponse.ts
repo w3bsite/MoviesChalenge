@@ -20,7 +20,7 @@ export default class UserResponce extends Repository {
         );
         this.request.use((config: any) => {
             config.params = config.params || {};
-            config.params["api-key"] = "f62f750b70a8ef11dad44670cfb6aa57";
+            config.params["api_key"] = "f62f750b70a8ef11dad44670cfb6aa57";
             return config;
         });
     }
