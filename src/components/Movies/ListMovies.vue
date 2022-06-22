@@ -14,9 +14,9 @@
                         {{ movie.title }}
                     </q-card-section>
                     <!-- Short Description -->
-                    <q-card-section class="text-weight-light mt-auto">
+                    <!-- <q-card-section class="text-weight-light mt-auto">
                         {{ movie.overview.substring(0, 70) + '...' }}
-                    </q-card-section>
+                    </q-card-section> -->
                     <!--  ReleaseDate -->
                     <q-card-section class="flex-inline ml-2 mt-auto">
                         <q-icon size="20px" name="calendar_today" class="mr-2"></q-icon>
