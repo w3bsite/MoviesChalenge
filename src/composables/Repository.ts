@@ -23,9 +23,6 @@ export default abstract class Repository {
         // axios instance for config
         this.axios = axios.create({
             baseURL: "https://api.themoviedb.org/3",
-            headers: {
-                token: `${this.token}`,
-            },
             // baseURL: "http://localhost:3333",
         });
 

@@ -4,13 +4,13 @@ export const useMovie = defineStore("Movie", {
     // ========================================================================== //
     //     State
     state: () => ({
-        Movies: null as any,
+        Res: { results: [] } as any,
     }),
 
     // ========================================================================== //
     //     Getters
     getters: {
-        GET_MOVIES: (state) => state.Movies,
+        GET_MOVIES: (state) => state.Res.results,
     },
 
     // ========================================================================== //
@@ -18,7 +18,8 @@ export const useMovie = defineStore("Movie", {
     actions: {
         // Movies Actions
         async getMovies() {
-            this.Movies = await repositories().movies().getMovies();
+            const res = await repositories().movies().getMovies();
+            this.Res = res.data;
         },
     },
 });
