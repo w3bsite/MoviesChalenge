@@ -1,0 +1,14 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+/.idea/.gitignore
+/.history/src/components/pages/users/AllUsers_20211218160947.vue
+/.idea/modules.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/taskv.iml
+/.idea/vcs.xml
+/yarn.lock
+.history
+components.d.ts
