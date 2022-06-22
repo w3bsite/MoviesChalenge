@@ -6,6 +6,7 @@ export default class Movies extends Repository {
     async getMovies(): Promise<AxiosResponse<Movie>> {
         return await this.axios.get("/discover/movie");
     }
+
     async getGenres(): Promise<AxiosResponse<Genre>> {
         return await this.axios.get("/genre/movie/list");
     }
