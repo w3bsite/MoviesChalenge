@@ -8,7 +8,7 @@
             @click="(page += 1) && (changePage())" />
     </div>
     <div class="mx-auto mt-2 text-grey-7 text-weight-light">showing results
-        {{ page }}-20
+        {{ page }}-{{ store.Movies.total_pages }}
     </div>
 
 </template>

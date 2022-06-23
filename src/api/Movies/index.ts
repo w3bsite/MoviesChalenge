@@ -4,7 +4,7 @@ import Repository from "@/api/Repository";
 
 export default class Movies extends Repository {
     // All Movies
-    async getMovies(page: number): Promise<AxiosResponse<Movie>> {
+    async getMovies(page?: number): Promise<AxiosResponse<Movie>> {
         return await this.axios.get("/discover/movie", {
             params: { page },
         });

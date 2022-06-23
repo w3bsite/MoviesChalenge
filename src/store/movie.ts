@@ -7,7 +7,7 @@ export const useMovie = defineStore("Movie", {
     //     State
     state: () => ({
         Genres: { genres: [] } as unknown as Genre,
-        Movies: { page: 0, results: [] } as unknown as Movie,
+        Movies: { results: [] } as unknown as Movie,
     }),
 
     // ========================================================================== //
@@ -36,7 +36,7 @@ export const useMovie = defineStore("Movie", {
             this.Genres = res.data;
         },
         // Movies List (Discover)
-        async getMovies(page: number) {
+        async getMovies(page?: number) {
             const res = await repositories().movies().getMovies(page);
             this.Movies = res.data;
         },

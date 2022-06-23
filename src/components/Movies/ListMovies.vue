@@ -20,6 +20,7 @@
                         <q-icon size="20px" color="grey-9" name="calendar_today" class="mr-2"></q-icon>
                         <div class="text-grey-8">{{ movie.release_date }}</div>
                     </q-card-section>
+
                     <!--  Genres Array-->
                     <q-card-section class="row pt-0">
                         <div v-for="(genre, i) in movie.genres" :key="i" class="row ml-2px my-auto">
@@ -45,5 +46,5 @@ import { useMovie } from '~/store/movie';
 const store = useMovie()
 // Calling Store Actions To Fetch Contents
 store.getGenres()
-store.getMovies(1)
+store.getMovies()
 </script>

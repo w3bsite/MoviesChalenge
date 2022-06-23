@@ -10,8 +10,10 @@ export default class UserResponce extends Repository {
             },
             (error: any) => {
                 if (error.response && error.response.data) {
-                    console.log(error.response.data.error);
-                    message = error.response.data.message;
+                    if (error.response.data.message)
+                        message = error.response.data.message;
+                    if (error.response.data.errors)
+                        message = error.response.data.errors[0];
                     this.RespondAlert(title, message);
                     throw Error;
                 }
