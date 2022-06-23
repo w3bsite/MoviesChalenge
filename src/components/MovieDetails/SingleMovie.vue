@@ -1,6 +1,20 @@
 <template>
-    <h5>MovieId:{{ route.params.id }}</h5>
+    <SingleHeader></SingleHeader>
+    <q-card class="mt-10">
+        <q-card-section class="flex">
+            <div>budget:</div>
+            <div class="ml-auto">{{ movie.budget }}</div>
+        </q-card-section>
+    </q-card>
 </template>
 <script lang="ts" setup>
+import { useMovie } from '~/store/movie';
+//Route
 const route = useRoute()
+// Movie Store
+const store = useMovie()
+const movie = computed(() => store.GET_DETAILS)
+// Calling Store Actions To Fetch Contents
+store.getDetails(route.params.id as string)
+
 </script>

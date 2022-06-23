@@ -1,4 +1,4 @@
-import { MovieInfo } from "./../api/models/Movie";
+import { MovieDetails, MovieInfo } from "./../api/models/Movie";
 import { Genre, Movie } from "~/api/models/Movie";
 import { repositories } from "~/composables/UtilFunctions";
 
@@ -8,6 +8,7 @@ export const useMovie = defineStore("Movie", {
     state: () => ({
         Genres: { genres: [] } as unknown as Genre,
         Movies: { results: [] } as unknown as Movie,
+        Details: {} as unknown as MovieDetails,
         Page: 1 as number,
         release_start_date: "2022-01-01",
         release_finish_date: "2023-01-01",
@@ -18,6 +19,7 @@ export const useMovie = defineStore("Movie", {
     getters: {
         GET_GENRES: (state) => state.Genres.genres,
         GET_MOVIES: (state) => state.Movies.results,
+        GET_DETAILS: (state) => state.Details,
         GET_MOVIES_GENRES(state): MovieInfo[] {
             const movies = [] as any;
             for (const movie of this.GET_MOVIES) {
@@ -49,6 +51,11 @@ export const useMovie = defineStore("Movie", {
                 .movies()
                 .getMovies(this.GET_PARAMS);
             this.Movies = res.data;
+        },
+        //Single Movie Details
+        async getDetails(id: string) {
+            const res = await repositories().movies().getDetails(id);
+            this.Details = res.data;
         },
     },
 });

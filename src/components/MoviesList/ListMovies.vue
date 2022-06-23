@@ -1,9 +1,7 @@
 <template>
     <!-- Pagination -->
     <div class="ccontainer   column row  ">
-
         <ListDatePicker class="md:px-10 my-4"></ListDatePicker>
-
     </div>
     <div class="ccontainer row md:max-w-90%">
         <!-- Movies List Including Their Genres -->
@@ -16,7 +14,7 @@
                 <div class="col md:flex md:flex-col ">
                     <!--  Title -->
                     <q-card-section class="text-weight-medium md:min-h-25% mb-auto">
-                        {{ movie.title }}
+                        {{ movie }}
                     </q-card-section>
 
                     <!--  ReleaseDate -->

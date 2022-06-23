@@ -1,11 +1,4 @@
 <template>
-  <div>
-    <q-chip color="primary" class="text-white mb-10 sm:ml-10">Home Page</q-chip>
-    <ListMovies></ListMovies>
-  </div>
-
+  <ListMovies></ListMovies>
 </template>
-<script lang="ts" setup>
 
-
-</script>
