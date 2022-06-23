@@ -1,6 +1,6 @@
 <template>
-    <div class="ccontainer">
-        <SingleMovie class="mx-auto md:max-w-90%"></SingleMovie>
+    <div class="ccontainer max-w-80%">
+        <SingleMovie></SingleMovie>
     </div>
 </template>
  

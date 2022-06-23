@@ -1,7 +1,7 @@
 <template>
     <!-- Date Filter -->
     <div>
-        <ListDatePicker class="  my-4 "></ListDatePicker>
+        <ListDatePicker class="my-4"></ListDatePicker>
     </div>
     <div class="ccontainer row md:max-w-90%">
         <!-- Movies List Including Their Genres -->

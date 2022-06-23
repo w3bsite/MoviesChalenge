@@ -1,6 +1,9 @@
 <template>
-    <SingleHeader></SingleHeader>
-    <q-card class="mt-10">
+    <div>
+        <SingleHeader></SingleHeader>
+    </div>
+
+    <q-card flat bordered class="mt-10">
         <q-card-section class="flex">
             <div>budget:</div>
             <div class="ml-auto">{{ movie.budget }}</div>
