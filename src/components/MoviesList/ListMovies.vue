@@ -1,11 +1,11 @@
 <template>
     <!-- Date Filter -->
-    <div class="ccontainer column row">
-        <ListDatePicker class="md:px-10 my-4"></ListDatePicker>
+    <div>
+        <ListDatePicker class="  my-4 "></ListDatePicker>
     </div>
     <div class="ccontainer row md:max-w-90%">
         <!-- Movies List Including Their Genres -->
-        <div v-for="(movie, i) in store.GET_MOVIES_GENRES" :key="i" class="col-12 col-sm-6 col-md-4 col-lg-3 pa-2">
+        <div v-for="(movie, i) in store.GET_MOVIES_GENRES" :key="i" class="col-12 col-sm-6 col-md-4 col-xl-3 pa-2">
             <q-card class="md:flex md:flex-row h-100% hover:shadow-xl cursor-pointer"
                 @click="router.push(`${movie.id}`)">
                 <!-- Movie Thumbnail -->
