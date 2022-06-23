@@ -1,7 +1,6 @@
 <template>
-
   <div>
-    <q-chip color="primary" class="text-white mb-10 md:ml-10">Movies List</q-chip>
+    <q-chip color="primary" class="text-white mb-10 sm:ml-10">Home Page</q-chip>
     <ListMovies></ListMovies>
   </div>
 

@@ -28,7 +28,6 @@ export default defineConfig({
             sassVariables: "src/quasar-variables.sass",
         }),
         Pages({
-            nuxtStyle: true,
             exclude: ["**/blank/*.vue"],
         }),
         Layouts(),

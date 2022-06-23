@@ -8,6 +8,9 @@ export const useMovie = defineStore("Movie", {
     state: () => ({
         Genres: { genres: [] } as unknown as Genre,
         Movies: { results: [] } as unknown as Movie,
+        Page: 1 as number,
+        release_start_date: "2022-01-01",
+        release_finish_date: "2023-01-01",
     }),
 
     // ========================================================================== //
@@ -25,6 +28,11 @@ export const useMovie = defineStore("Movie", {
             }
             return movies;
         },
+        GET_PARAMS: (state) => ({
+            page: state.Page,
+            "release_date.gte": state.release_start_date,
+            "release_date.lte": state.release_finish_date,
+        }),
     },
 
     // ========================================================================== //
@@ -36,8 +44,10 @@ export const useMovie = defineStore("Movie", {
             this.Genres = res.data;
         },
         // Movies List (Discover)
-        async getMovies(page?: number) {
-            const res = await repositories().movies().getMovies(page);
+        async getMovies() {
+            const res = await repositories()
+                .movies()
+                .getMovies(this.GET_PARAMS);
             this.Movies = res.data;
         },
     },

@@ -1,4 +1,10 @@
 <template>
+    <!-- Pagination -->
+    <div class="ccontainer   column row  ">
+
+        <ListDatePicker class="md:px-10 my-4"></ListDatePicker>
+
+    </div>
     <div class="ccontainer row md:max-w-90%">
         <!-- Movies List Including Their Genres -->
         <div v-for="(movie, i) in store.GET_MOVIES_GENRES" :key="i" class="col-12 col-sm-6 col-md-4 pa-2">
@@ -11,10 +17,7 @@
                     <q-card-section class="text-weight-medium md:min-h-25% mb-auto">
                         {{ movie.title }}
                     </q-card-section>
-                    <!-- Short Description -->
-                    <!-- <q-card-section class="text-weight-light mt-auto">
-                        {{ movie.overview.substring(0, 70) + '...' }}
-                    </q-card-section> -->
+
                     <!--  ReleaseDate -->
                     <q-card-section class="row pl-18px mb-4 py-0">
                         <q-icon size="20px" color="grey-9" name="calendar_today" class="mr-2"></q-icon>
