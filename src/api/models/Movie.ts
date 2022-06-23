@@ -9,7 +9,7 @@ export type MovieDetails = {
     backdrop_path: string;
     belongs_to_collection: string;
     budget: number;
-    genres: Genre[];
+    genres: { id?: number; name?: string }[];
     homepage: string;
     id: number;
     imdb_id: string;
@@ -67,5 +67,5 @@ export type MovieInfo = {
 };
 
 export type Genre = {
-    genres: [{ id?: number; name?: string }];
+    genres: { id?: number; name?: string }[];
 };
