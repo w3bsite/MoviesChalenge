@@ -11,7 +11,7 @@
             <q-card class="md:flex md:flex-row h-100% hover:shadow-xl cursor-pointer"
                 @click="router.push(`${movie.id}`)">
                 <!-- Movie Thumbnail -->
-                <q-img class="col" :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"></q-img>
+                <q-img class="col" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`"></q-img>
                 <!-- Movie Info -->
                 <div class="col md:flex md:flex-col ">
                     <!--  Title -->
