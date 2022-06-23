@@ -63,7 +63,7 @@
         </q-card>
         <!-- Credits -->
         <q-card flat bordered class="ccontainer text-grey-10 mt-10 pa-6">
-            {{ movie }}
+            <!-- {{ movie }} -->
         </q-card>
     </div>
 
