@@ -17,7 +17,9 @@
   </q-layout>
 </template>
 <script lang="ts" setup>
+// Router 
 const router = useRouter()
+// Redirect To home
 function goHome() {
   router.push('/')
 }
