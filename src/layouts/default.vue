@@ -3,7 +3,7 @@
     <q-header class="bg-blue-14 text-white">
       <!-- NavBar -->
       <q-toolbar>
-        <q-toolbar-title>Movies Db</q-toolbar-title>
+        <q-toolbar-title @click="goHome" class="cursor-pointer">Movies Db</q-toolbar-title>
       </q-toolbar>
     </q-header>
     <q-page-container>
@@ -16,7 +16,12 @@
     </q-page-container>
   </q-layout>
 </template>
-
+<script lang="ts" setup>
+const router = useRouter()
+function goHome() {
+  router.push('/')
+}
+</script>
 <style lang="scss">
 * {
   transition: all 0.5s;
