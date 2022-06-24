@@ -6,8 +6,8 @@
         </div>
         <!-- Title & Taglines -->
         <q-card-section>
-            <div class="text-weight-medium">{{ movie.title }}</div>
-            <div class="text-weight-light mt-2">{{ movie.tagline }}</div>
+            <div class="text-weight-medium text-18px">{{ movie.title }}</div>
+            <div class="  mt-2">{{ movie.tagline }}</div>
         </q-card-section>
     </q-card>
 
