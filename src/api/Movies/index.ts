@@ -1,4 +1,4 @@
-import { Genre, Movie, MovieDetails } from "./../models/Movie";
+import { Credits, Genre, Movie, MovieDetails } from "./../models/Movie";
 import { AxiosResponse } from "axios";
 import Repository from "@/api/Repository";
 
@@ -14,5 +14,8 @@ export default class Movies extends Repository {
     // Single Movie By Id
     async getDetails(id: string): Promise<AxiosResponse<MovieDetails>> {
         return await this.axios.get(`/movie/${id}`);
+    }
+    async getCredits(id: string, params: any): Promise<AxiosResponse<Credits>> {
+        return await this.axios.get(`/movie/${id}/credits`, { params });
     }
 }
