@@ -1,9 +1,9 @@
 <template>
     <!-- Date Filter -->
-    <div>
+    <div v-if="!loading">
         <ListDatePicker class="my-4"></ListDatePicker>
     </div>
-    <div class="ccontainer row md:max-w-90%">
+    <div class="ccontainer row md:max-w-90%" v-if="!loading">
         <!-- Movies List Including Their Genres -->
         <div v-for="(movie, i) in store.GET_MOVIES_GENRES" :key="i" class="col-12 col-sm-6 col-md-4 col-xl-3 pa-2">
             <q-card class="md:flex md:flex-row h-100% hover:shadow-xl cursor-pointer"
@@ -35,20 +35,29 @@
                 </div>
             </q-card>
         </div>
+        <q-inner-loading :showing="loading" label="Please wait..." label-class="text-teal"
+            label-style="font-size: 1.1em" />
     </div>
     <!-- Pagination -->
-    <div class="ccontainer column md:max-w-80% row mt-30 mb-20">
+    <div class="ccontainer column md:max-w-80% row mt-30 mb-20" v-if="!loading">
         <ListPagination></ListPagination>
     </div>
 
 </template>
 <script lang="ts" setup>
 import { useMovie } from '~/store/movie';
+// Loading
+const loading = ref(true)
 // Router
 const router = useRouter()
 // Movie Store
 const store = useMovie()
 // Calling Store Actions To Fetch Contents
+onMounted(async () => {
+    await store.getGenres()
+    await store.getMovies()
+    loading.value = false
+})
 store.getGenres()
 store.getMovies()
 </script>

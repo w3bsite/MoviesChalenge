@@ -20,5 +20,6 @@ Quasar is a wellknown UI framework for Vue, you can check it's documentation and
 pinia is the official state management system for Vue3, it's meant to be used instead of Vuex that is now deprecated, it covers state types real nice and have a clean documentation that you can find on it's website.
 
 ------
-Comments && Structure Are Made By Shahin HajiSalim
+
+codes,Comments && Structure Are Made By Shahin HajiSalim
 Thanks To The Greate Vite And noPlugin Comunity.

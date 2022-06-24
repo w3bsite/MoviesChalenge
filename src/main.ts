@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import { Quasar, Dialog, LocalStorage } from "quasar";
+import { Quasar, Dialog, LoadingBar, LocalStorage } from "quasar";
 import { createPinia } from "pinia";
 import { createRouter, createWebHistory } from "vue-router";
 // Import icon libraries
@@ -32,7 +32,14 @@ myApp.use(router);
 
 // Dialog And LocalStorage plugins
 myApp.use(Quasar, {
-    plugins: { Dialog, LocalStorage },
+    plugins: { Dialog, LoadingBar, LocalStorage },
+    config: {
+        loadingBar: {
+            color: "primary",
+            size: "6px",
+            position: "bottom",
+        },
+    },
 });
 
 // Mounting myApp instance

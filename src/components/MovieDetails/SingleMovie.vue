@@ -1,9 +1,9 @@
 <template>
     <div class="ccontainer">
 
-        <SingleHeader></SingleHeader>
+        <SingleHeader v-if="!loading"></SingleHeader>
 
-        <div class="row mt-10 ">
+        <div class="row mt-10 " v-if="!loading">
             <!-- Poster -->
             <q-img :src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`" class="col-12 col-md-3 rounded"
                 fit="contain" v-if="movie && movie.poster_path" />
@@ -71,27 +71,34 @@
             </div>
         </div>
         <!-- Overview -->
-        <q-card flat bordered class="ccontainer text-grey-10 mt-10 pa-6 min-h-30 text-16px">
+        <q-card flat bordered class="ccontainer text-grey-10 mt-10 pa-6 min-h-30 text-16px" v-if="!loading">
             {{ movie.overview }}
         </q-card>
         <!-- Credits -->
-        <div class="ccontainer">
+        <div class="ccontainer" v-if="!loading">
             <SingleCast :id="(route.params.id as string)">
             </SingleCast>
-
         </div>
+        <q-inner-loading :showing="loading" label="Please wait..." label-class="text-teal"
+            label-style="font-size: 1.1em" />
     </div>
 
 </template>
 <script lang="ts" setup>
 import { useMovie } from '~/store/movie';
+// Loading
+const loading = ref(true)
 //Route
 const route = useRoute()
 // Movie Store
 const store = useMovie()
 const movie = computed(() => store.GET_DETAILS)
 // Calling Store Actions To Fetch Contents
-store.getDetails(route.params.id as string)
+onMounted(async () => {
+    await store.getDetails(route.params.id as string)
+    loading.value = false
+})
+
 
 
 </script>
