@@ -11,8 +11,8 @@ export const useMovie = defineStore("Movie", {
         Details: {} as unknown as MovieDetails,
         Credits: { cast: [] } as unknown as Credits,
         Page: 1 as number,
-        release_start_date: "2022-01-01",
-        release_finish_date: "2023-01-01",
+        release_start_date: null,
+        release_finish_date: null,
     }),
 
     // ========================================================================== //
